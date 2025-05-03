@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Logo from '../assets/logo.png';
-import { signIn, signUp } from './Auth'; // Assume you have both methods
+import { signIn, signUp } from './Auth';
 import { useNavigate } from 'react-router-dom';
 
 export default function AuthPage() {
@@ -29,7 +29,6 @@ export default function AuthPage() {
     <div className="h-screen bg-gray-100 flex items-center justify-center">
       <div className="w-full max-w-6xl bg-white rounded-lg shadow-lg overflow-hidden flex">
         
-        {/* Left Side - Slide Illustration */}
         <div className="hidden md:block md:w-3/5 relative">
           <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isSignUp ? 'opacity-0' : 'opacity-100'}`}>
             <div className="p-8 flex items-center justify-center h-full bg-gradient-to-br from-blue-600 to-blue-400">
@@ -51,7 +50,6 @@ export default function AuthPage() {
           </div>
         </div>
 
-        {/* Right Side - Auth Form */}
         <div className="w-full md:w-2/5 p-8 md:p-16 flex flex-col justify-center items-center">
           <img src={Logo} alt="logo" className="h-12 mb-4" />
           <h1 className="text-3xl font-bold text-gray-900 mb-2">

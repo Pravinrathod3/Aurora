@@ -5,6 +5,8 @@ import Productdetailpage from '../Pages/Productdetailpage'
 import LoginPage from '../Pages/loginpage'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import ProfilePage from '../Pages/Profile'
+
 
 function Routingpage() {
   
@@ -21,6 +23,7 @@ function Routingpage() {
        <Route path="/product/:id" element={<Productdetailpage />} />
        <Route path="*" element={<h1 className='text-3xl text-center'>404 Not Found</h1>} />
        <Route path="/login" element={<LoginPage />} />
+       <Route path="/profile" element={<ProfilePage />} />
      </Routes>
      {!hidelayout && <Footer />}
     </>

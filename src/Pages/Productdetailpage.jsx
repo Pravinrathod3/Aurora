@@ -40,7 +40,7 @@ function Productdetailpage() {
     <div className="max-w-6xl mx-auto p-4">
     <div className="flex flex-col md:flex-row gap-8">
       {/* Product Image */}
-      <div className="w-full md:w-1/2 bg-gray-50 p-8 rounded-lg flex items-center justify-center">
+      <div className="w-full max-h-150 md:w-1/2 bg-gray-50 p-8 rounded-lg flex items-center justify-center">
         <img 
           src={Products?.imageid} 
           alt={Products?.name}

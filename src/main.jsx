@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { BrowserRouter as Router} from "react-router-dom";
 import {SearchContextProvider} from './Pages/Context/SearchContextProvider.jsx';
-
 import Routingpage from './RoutingFile/Routingpage.jsx';
 
 
