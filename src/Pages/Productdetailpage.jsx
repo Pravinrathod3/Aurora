@@ -1,13 +1,22 @@
 import React , {useState, useEffect} from 'react'
-import { databases } from "../../appwriteConfig";
+import { databases, ID } from "../../appwriteConfig";
 import { useParams } from 'react-router-dom';
 import { Star, Truck, RefreshCcw, Heart } from 'lucide-react';
+import usestore from '@/components/store';
+import cartstore from '@/components/cartstatestore';
 
 
 function Productdetailpage() {
+
+   const [quantity, setQuantity] = useState(1);
+   const [Products, setProducts] = useState(null);
+
+  const opencart = usestore((state) => state.opencart);
+
+  const {addtocart} = cartstore((state) => state);
+
     const { id } = useParams();
-  const[Products, setProducts] = useState(null);
-  const[quantity, setQuantity] = useState(1);
+
   const incrementQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -15,6 +24,18 @@ function Productdetailpage() {
     if (quantity > 1) {
       setQuantity((prev) => prev - 1);
     }   
+    }
+
+    const handleclick = () => {
+      const producttoadd = {
+        id: id,
+        product: Products,
+        quantity: quantity,
+      };
+
+      addtocart(producttoadd);
+      setQuantity(1);
+      opencart();
     }
 
 
@@ -84,7 +105,7 @@ function Productdetailpage() {
             </button>
           </div>
           
-          <button className="bg-red-500 text-white px-8 py-2 rounded hover:bg-red-600 flex-grow">
+          <button className="bg-red-500 text-white px-8 py-2 rounded hover:bg-red-600 flex-grow" onClick={handleclick}>
             Buy Now
           </button>
           

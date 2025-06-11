@@ -5,13 +5,16 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Query } from "appwrite";
 import { Heart } from "lucide-react";
+import usestore from "@/components/store";
+import cartstore from "@/components/cartstatestore";
 
 function Home() {
   const [products, setProducts] = useState([]);
   const { search } = useSearch();
   const [gender, setgender] = useState("All");
   const [rate, setrate] = useState([0, 200]);
-  const [savedItems, setSavedItems] = useState({});
+  const { opencart } = usestore();
+  const {addtocart} = cartstore((state) => state);
 
   useEffect(() => {
     async function getProducts() {
@@ -29,9 +32,16 @@ function Home() {
     getProducts();
   }, []);
 
-  const toggleSave = (id) => {
-    setSavedItems((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
+
+  const handleclick = (id) => {
+    const producttoadd = {
+      id: id,
+      product: products.find((item) => item.$id === id),
+      quantity: 1,
+    };
+    opencart();
+    addtocart(producttoadd);
+  }
 
   return (
     <div className="w-screen min-h-screen bg-white">
@@ -129,19 +139,21 @@ function Home() {
 
                     {/* Heart Icon */}
                     <button
-                      onClick={() => toggleSave(product.$id)}
+                    
                       className="absolute top-3 right-3 bg-white/70 hover:bg-white rounded-full p-2 transition"
+                     
                     >
+                    
                       <Heart
                         className={`w-5 h-5 ${
-                          savedItems[product.$id] ? "text-red-500 fill-red-500" : "text-gray-500"
+                           "text-red-500" 
                         }`}
                       />
                     </button>
                   </div>
 
                   {/* Add to Cart Button */}
-                  <button className="w-full bg-blue-500 text-white py-2 font-medium hover:bg-blue-600 transition">
+                  <button className="w-full bg-blue-500 text-white py-2 font-medium hover:bg-blue-600 transition " onClick={() => handleclick(product.$id)}>
                     Add to Cart
                   </button>
                 </motion.div>
