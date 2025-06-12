@@ -1,12 +1,39 @@
-# React + Vite
+# 🌸 Aurora – A Perfume Brand Ecommerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aurora is a sleek, modern ecommerce web application dedicated to showcasing and selling premium perfumes. Built with a modern tech stack, Aurora delivers a fast, responsive, and seamless user experience.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🏠 **Landing Page** — Visually appealing entry point with a focus on branding.
+- 🛍️ **Product Listing Page** — Browse a wide range of perfumes with filters.
+- 🔍 **Product Detail Page** — View detailed information and images for each product.
+- 🔐 **Authentication** — Secure sign up, login, and session handling powered by Appwrite.
+- 🔎 **Filtering & Sorting** — Filter products based on categories, price, and more.
+- ❤️ **Wishlist** — Save your favorite products with one click.
+- 🧑‍💼 **Profile Page** — View and manage your personal account details.
+- 🛒 **Cart** — Add, update, and remove products from the cart with quantity management.
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- **React.js** — Component-based architecture for building UI.
+- **Tailwind CSS** — Utility-first CSS framework for styling.
+- **Zustand** — Lightweight and scalable global state management.
+
+### Backend & Auth
+- **Appwrite** — Backend-as-a-Service used for:
+  - Realtime database for products, users, and cart data.
+  - Authentication (Email/Password based).
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js and npm/yarn installed
+- Appwrite instance (or use Appwrite Cloud)
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/aurora-ecommerce.git
+cd aurora-ecommerce
+npm install
