@@ -88,14 +88,14 @@ const CartDrawer = () => {
                       alt={product.name}
                       className="w-16 h-20 object-cover"
                     />
-                    <h3>₹{product.price}</h3>
+                    <h3>${product.price}</h3>
                     <div className="flex flex-row space-x-3">
                     <h3>{cartItem.quantity}</h3>
                     <div className="flex flex-col">
                       <button onClick={() => handleincrement(cartItem.id)}><ChevronUp /></button>
                       <button onClick={() => handledecrement(cartItem.id)}><ChevronDown /></button>
                     </div>
-                    <h3>₹{(cartItem.quantity * product.price).toFixed(2)}</h3>
+                    <h3>${(cartItem.quantity * product.price).toFixed(2)}</h3>
 
                     
                   </div>
@@ -116,15 +116,15 @@ const CartDrawer = () => {
              <div className="font-medium text-2xl">Cart Total</div>
              <div className="flex flex-row justify-between">
               <p>Subtotal</p>
-              <p>₹{totalamount}</p>
+              <p>${totalamount}</p>
              </div>
               <div className="flex flex-row justify-between">
                 <p>Shipping</p>
-                <p>₹50</p>
+                <p>$50</p>
               </div>  
               <div className="flex flex-row justify-between">
                 <p>Total</p>
-                <p>₹{subtotal}</p>
+                <p>${subtotal}</p>
               </div>  
               
           </div>

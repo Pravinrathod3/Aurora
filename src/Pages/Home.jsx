@@ -7,6 +7,7 @@ import { Query } from "appwrite";
 import { Heart } from "lucide-react";
 import usestore from "@/components/store";
 import cartstore from "@/components/cartstatestore";
+import wishliststore from "../components/profilestore";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -15,6 +16,8 @@ function Home() {
   const [rate, setrate] = useState([0, 200]);
   const { opencart } = usestore();
   const {addtocart} = cartstore((state) => state);
+  const { toggleWishlist } = wishliststore((state) => state);
+  const { wishlist } = wishliststore((state) => state);
 
   useEffect(() => {
     async function getProducts() {
@@ -139,17 +142,16 @@ function Home() {
 
                     {/* Heart Icon */}
                     <button
-                    
-                      className="absolute top-3 right-3 bg-white/70 hover:bg-white rounded-full p-2 transition"
-                     
-                    >
-                    
-                      <Heart
-                        className={`w-5 h-5 ${
-                           "text-red-500" 
-                        }`}
-                      />
-                    </button>
+                        className="absolute top-3 right-3 bg-white/70 hover:bg-white rounded-full p-2 transition"
+                        onClick={() => toggleWishlist(product.$id)}
+                      >
+                        <Heart
+                          className={`w-5 h-5 ${
+                            wishlist.includes(product.$id) ? "text-red-500 fill-red-500" : "text-gray-400"
+                          }`}
+                        />
+                      </button>
+
                   </div>
 
                   {/* Add to Cart Button */}

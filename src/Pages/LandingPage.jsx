@@ -121,7 +121,7 @@ export default function LandingPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end text-white">
                   <h2 className="text-xl font-bold">{product.name}</h2>
                   <p className="text-sm text-gray-200">{product.category}</p>
-                  <p className="text-md font-semibold">{product.price}</p>
+                  <p className="text-md font-semibold">${product.price}</p>
                 </div>
                 </Link>
               </div>
