@@ -17,8 +17,8 @@ export default function ProfilePage() {
         const response = await Promise.all(
           wishlist.map(async (itemId) => {    
             const item = await databases.getDocument(
-              "67d6825c0010e3f2e721",
-              "67d6826a00049d166fed",
+              import.meta.env.VITE_APPWRITE_DATABASE_ID,
+              import.meta.env.VITE_APPWRITE_COLLECTION_ID,
               itemId
             );
             return item;
