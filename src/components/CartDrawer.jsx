@@ -28,16 +28,14 @@ const CartDrawer = () => {
     incrementQuantity(id);
   }
 
-  var total = 0;
+  var totalamount = 0;
 
-  const totalamount = cartitems.map((item) =>{
-    total = total + (item.quantity * item.product.price).toFixed(2)
-
-    return total;
-   }
-  )
-
-  var subtotal = total + 50;
+  cartitems.forEach((item) => {
+    totalamount += item.quantity * item.product.price;
+  });
+  
+  const shipping = 50;
+  const subtotal = totalamount + shipping;
 
   const handledecrement = (id) => {
     if(cartitems.find(item => item.id === id).quantity > 1){
