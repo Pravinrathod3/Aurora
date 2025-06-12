@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  Star, Heart, ChevronsRight, ChevronsLeft, ArrowRight, Import } from 'lucide-react';
+import {  Star, Heart, ChevronsRight, ChevronsLeft, ArrowRight } from 'lucide-react';
 import { databases } from "../../appwriteConfig";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
@@ -25,8 +25,8 @@ export default function LandingPage() {
     async function getProducts() {
           try {
             const response = await databases.listDocuments(
-              Import.meta.env.VITE_APPWRITE_DATABASE_ID,
-              Import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+              "67d6825c0010e3f2e721",
+              "67d6826a00049d166fed",
             );
 
             const products = response.documents;
