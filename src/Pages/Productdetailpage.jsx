@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Star, Truck, RefreshCcw, Heart } from 'lucide-react';
 import usestore from '@/components/store';
 import cartstore from '@/components/cartstatestore';
+import wishliststore from "../components/profilestore";
 
 
 function Productdetailpage() {
@@ -14,6 +15,8 @@ function Productdetailpage() {
   const opencart = usestore((state) => state.opencart);
 
   const {addtocart} = cartstore((state) => state);
+  const { toggleWishlist } = wishliststore((state) => state);
+  const { wishlist } = wishliststore((state) => state);
 
     const { id } = useParams();
 
@@ -109,9 +112,16 @@ function Productdetailpage() {
             Buy Now
           </button>
           
-          <button className="border border-gray-300 p-2 rounded hover:bg-gray-50">
-            <Heart size={20} />
-          </button>
+          <button
+             className=" bg-white/70 hover:bg-white border-2 rounded-2xl p-2 transition"
+             onClick={() => toggleWishlist(id)}
+           >
+             <Heart
+               className={`w-5 h-5 ${
+                 wishlist.includes(id) ? "text-red-500 fill-red-500" : "text-gray-400"
+               }`}
+             />
+           </button>
         </div>
         
         {/* Shipping Info */}
